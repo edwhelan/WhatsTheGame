@@ -1,78 +1,76 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 
- var url = 'http://gd.mlb.com/components/game/mlb/year_2018/month_04/day_23/master_scoreboard.json';
-// var numOfGames = data.data.games.game.length;
-let firstGame = [];
-
-fetch(url)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(myJson) {
-     firstGame = myJson.data.games.game.map
-     (function(homeTeam) {
-       firstGame = homeTeam.away_team_name
-       
-     });
-  });
-  
-
-      
-  
+var today = new Date();
+var dd = today.getDate();
+var ddPlus = (dd > 9) ? dd : "0" + dd;
+var mm = today.getMonth()+1;
+var mmPlus = (mm > 9) ? mm : "0" + mm;
+var yyyy = today.getFullYear();
 
 
+ var url = 'http://gd.mlb.com/components/game/mlb/year_' + yyyy+ "/month_"+ mmPlus + '/day_' + ddPlus + '/master_scoreboard.json';
 
-//   console.log(data.data.games.game[0].away_team_name + ' vs '+ data.data.games.game[0].home_team_name)
-// //inject home team
-//   document.getElementById('homeTeam').innerHTML = data.data.games.game[0].home_team_name;
-// // inject away team
-//   document.getElementById('awayTeam').innerHTML = data.data.games.game[0].away_team_name;
-// //inject current status of game
-//   document.getElementById('status').innerHTML = data.data.games.game[0].status.status;
-// //inject home score
-//   document.getElementById('homeScore').innerHTML = data.data.games.game[0].linescore.r.home;
-// //inject away score
-//   document.getElementById('awayScore').innerHTML = data.data.games.game[0].linescore.r.away;
-// //inject start time
-// document.getElementById('startTime').innerHTML = data.data.games.game[0].time;
-
-function UserGreeting(props) {
-  return <h1>Welcome back!</h1>;
-}
-
-function GuestGreeting(props) {
-  return <h1>Please sign up.</h1>;
-}
-
-function Greeting(props) {
-  const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {
-    return <UserGreeting />;
+class App extends Component {
+  state = { users: [] };
+  componentDidMount() {
+    fetch(url)
+      .then(results => results.json())
+      .then(response => {
+        const users = response.data.games.game;
+        this.setState({ users });
+      });
   }
-  return <GuestGreeting />;
+
+  render() {
+    return (
+      <div className="App"  >
+        <header className="App-header">          
+          <h3 className="App-title">Baseball Games for {mm}/{dd}/{yyyy} </h3>
+        </header>
+        {this.state.users.map(user => {
+
+          //detect if game has score yet and set score variable. Show 0 if not.
+           let homeScore = 0;
+           let awayScore = 0;
+           if('linescore' in user){
+            homeScore = user.linescore.r.home;
+            awayScore = user.linescore.r.away;
+          } else {
+            homeScore + 0;             
+           }
+          
+          return (
+            <div style={{
+              margin: 'auto',
+              border: '2.5px solid #e0dbd1',
+              backgroundColor: 'rgba(14, 74, 13, 0.8',
+              color: '#e0dbd1',
+              textAlign: 'center',
+              width: 'auto'
+
+            }} key={user.id}>
+            <p>
+            {user.home_team_name} {homeScore} vs. {user.away_team_name} {awayScore} Start Time: {user.time}est 
+            </p>
+          </div>
+        );
+      } 
+      )
+      }
+      </div>
+    );
+  }
 }
+
+
 
 
 const IndexPage = () => (
   <div>
-    <h1>Baseball Games of the Day!!</h1>
-      <div id='theGames'>
-      <Greeting isLoggedIn={true} />
-    
-    {/* <div id='game'>
-    
-      <p id='homeTeam' />
-      <p id='homeScore'/>
-      <p id='awayTeam'/>
-      <p id='awayScore'/>
-      <p id='startTime'/>
-      <p id='status'/>
-    </div> */}
-
-</div>
-
-    
+    <div id='theGames'>
+      <App />  
+    </div>   
   </div>
 )
 

@@ -6,12 +6,12 @@ import Header from '../components/header'
 import './index.css'
 
 const Layout = ({ children, data }) => (
-  <div>
+  <div className='Logo'>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'live updated game data for MLB', content: 'live updated game data for MLB' },
+        { name: 'Baseball MLB Games', content: 'sample, something' },
       ]}
     />
     <Header siteTitle={data.site.siteMetadata.title} />
