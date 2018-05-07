@@ -9,7 +9,7 @@ var mmPlus = (mm > 9) ? mm : "0" + mm;
 var yyyy = today.getFullYear();
 
 
- var url = 'http://gd.mlb.com/components/game/mlb/year_' + yyyy+ "/month_"+ mmPlus + '/day_' + ddPlus + '/master_scoreboard.json';
+ var url = 'https://gd.mlb.com/components/game/mlb/year_' + yyyy+ "/month_"+ mmPlus + '/day_' + ddPlus + '/master_scoreboard.json';
 
 class App extends Component {
   state = { users: [] };
