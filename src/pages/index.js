@@ -7,9 +7,11 @@ var ddPlus = (dd > 9) ? dd : "0" + dd;
 var mm = today.getMonth()+1;
 var mmPlus = (mm > 9) ? mm : "0" + mm;
 var yyyy = today.getFullYear();
+// var selectedDate = oForm.elements['gDay'].selectedIndex;
 
 
- var url = 'https://gd.mlb.com/components/game/mlb/year_' + yyyy+ "/month_"+ mmPlus + '/day_' + ddPlus + '/master_scoreboard.json';
+//  var url = 'https://gd.mlb.com/components/game/mlb/year_' + yyyy+ '/month_'+ mmPlus + '/day_' + ddPlus + '/master_scoreboard.json';
+ var url = 'https://gd.mlb.com/components/game/mlb/year_2011/month_09/day_20/master_scoreboard.json';
 
 function datePicker(month, day, year){
 
@@ -76,7 +78,7 @@ class App extends Component {
 const IndexPage = () => (
   <div>
     <form> 
-      <input type='date' name='gDay'/>
+      <input type='date' id='getDate' name='gameDay' value='1960-09-28'/>
     </form>
     
     <div id='theGames'>
