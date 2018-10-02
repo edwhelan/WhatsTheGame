@@ -11,6 +11,13 @@ var yyyy = today.getFullYear();
 
  var url = 'https://gd.mlb.com/components/game/mlb/year_' + yyyy+ "/month_"+ mmPlus + '/day_' + ddPlus + '/master_scoreboard.json';
 
+function datePicker(month, day, year){
+
+
+}
+
+
+
 class App extends Component {
   state = { users: [] };
   componentDidMount() {
@@ -68,6 +75,10 @@ class App extends Component {
 
 const IndexPage = () => (
   <div>
+    <form> 
+      <input type='date' name='gDay'/>
+    </form>
+    
     <div id='theGames'>
       <App />  
     </div>   
