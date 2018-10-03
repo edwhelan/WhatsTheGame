@@ -2,5 +2,9 @@ module.exports = {
   siteMetadata: {
     title: 'Whats The Game?',
   },
-  plugins: ['gatsby-plugin-react-helmet'],
+  plugins: [
+    'gatsby-plugin-react-helmet',
+    'react-datepicker',
+    'moment'
+],
 }

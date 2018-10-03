@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^1.9.247",
+    "gatsby": "^2.0.17",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "mlbgames": "^1.0.5",
+    "moment": "^2.22.2",
+    "react-datepicker": "^1.6.0",
     "react-helmet": "^5.2.0"
   },
   "keywords": [

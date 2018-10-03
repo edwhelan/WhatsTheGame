@@ -7,7 +7,7 @@ const AboutPage = () => (
     padding: '0 1em 1em 1em',
     margin: 'auto',
     border: '2.5px solid #e0dbd1',
-    backgroundColor: 'rgba(14, 74, 13, 0.8',
+    backgroundColor: 'rgba(68, 82, 127, .9)',
     color: '#e0dbd1',
     textAlign: 'center',
     width: '75%',

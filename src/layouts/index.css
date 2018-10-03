@@ -6,9 +6,9 @@ html {
 }
 
 .Logo {
-  background-image: url(./indexPic.jpg);
-  background-size: cover;
-  background-color: darkblue;
+  background-image: url(./indexPic.png);
+  background-size: repeat;
+  background-color: rgba(68, 82, 127, .9);
   height: 100vh;
 }
 
