@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
@@ -12,33 +12,33 @@ var mm = today.getMonth()+1;
 var mmPlus = (mm > 9) ? mm : "0" + mm;
 var yyyy = today.getFullYear();
 
-class Example extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      startDate: moment()
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
+// class Example extends React.Component {
+//   constructor (props) {
+//     super(props)
+//     this.state = {
+//       startDate: moment()
+//     };
+//     this.handleChange = this.handleChange.bind(this);
+//   }
 
-  handleChange(date) {
-    this.setState({
-      startDate: date
-    });
-  }
+//   handleChange(date) {
+//     this.setState({
+//       startDate: date
+//     });
+//   }
 
-  render() {
-    return <DatePicker
-        selected={this.state.startDate}
-        onChange={this.handleChange}
-    />;
-  }
-}
+//   render() {
+//     return <DatePicker
+//         selected={this.state.startDate}
+//         onChange={this.handleChange}
+//     />;
+//   }
+// }
 
 
 
-//  var url = 'https://gd.mlb.com/components/game/mlb/year_' + yyyy+ '/month_'+ mmPlus + '/day_' + ddPlus + '/master_scoreboard.json';
- var url = 'https://gd.mlb.com/components/game/mlb/year_2011/month_09/day_20/master_scoreboard.json';
+ var url = 'https://gd.mlb.com/components/game/mlb/year_' + yyyy+ '/month_'+ mmPlus + '/day_' + ddPlus + '/master_scoreboard.json';
+//  var url = 'https://gd.mlb.com/components/game/mlb/year_2011/month_09/day_20/master_scoreboard.json';
 
 
 
@@ -68,7 +68,7 @@ class App extends Component {
             homeScore = user.linescore.r.home;
             awayScore = user.linescore.r.away;
           } else {
-            homeScore + 0;             
+            homeScore += 0;             
            }
           
           return (
@@ -99,8 +99,6 @@ class App extends Component {
 
 const IndexPage = () => (
   <div>
-
-    <DatePicker />
     <div id='theGames'>
       <App />  
     </div>   
