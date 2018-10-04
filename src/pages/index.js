@@ -99,9 +99,7 @@ class App extends Component {
 
 const IndexPage = () => (
   <div>
-    <form> 
 
-    </form>
     <DatePicker />
     <div id='theGames'>
       <App />  
