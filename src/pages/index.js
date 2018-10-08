@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby'
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import Layout from '../layouts/index.js'
+import Header from '../components/header.js'
 
 import 'react-datepicker/dist/react-datepicker.css';
+import { checkPropTypes } from 'prop-types';
 
 var today = new Date();
 var dd = today.getDate();
@@ -98,11 +101,14 @@ class App extends Component {
 
 
 const IndexPage = () => (
+  // <Layout location={checkPropTypes.location} >
   <div>
+  <Header />
     <div id='theGames'>
       <App />  
     </div>   
   </div>
+  // {/* </Layout> */}
 )
 
 export default IndexPage
